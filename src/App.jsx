@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.module.css";
-
+import Button from "./components/Button/Button";
+import Number from "./components/Content/Number";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -12,29 +13,24 @@ function App() {
     setCount(count - 1);
   };
 
-  {
-    /*//function decreaseNumber() {
+  /*//function decreaseNumber() {
 //    setCount(count - 1);
 //}
 
 //const decreaseNumber = function() {
 //    setCount(count - 1);
-//};
-// Как правильно и в чем разница между способами?*/
-  }
+//};*/
 
   return (
     <div className="app">
-      <h1 className="number">{count}</h1>
-
+      <Number value={count} />
       <div className="buttons">
-        <button className="button plus" onClick={increaseNumber}>
-          +1
-        </button>
-
-        <button className="button minus" onClick={decreaseNumber}>
-          -1
-        </button>
+        <Button onClick={increaseNumber} variant="primary">
+          <span>+1</span>
+        </Button>
+        <Button onClick={decreaseNumber} variant="notprimary">
+          <span>-1</span>
+        </Button>
       </div>
     </div>
   );
