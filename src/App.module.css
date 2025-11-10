@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #5767ac 0%, #50306f 100%);
+}
+
+#root {
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Мне нравится, но я не поняла белая рамка при нажатии на кнопку автоматически появляется? */
+/* Я вроде не прописывала этого. И не понимаю как убрать темную обводку вокруг этой белой.*/
+.number {
+  font-size: 120px;
+  color: white;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.button {
+  padding: 15px 30px;
+  font-size: 24px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button.plus {
+  background-color: #4caf50;
+  color: white;
+}
+
+.button.plus:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.button.minus {
+  background-color: #f44336;
+  color: white;
+}
+
+.button.minus:hover {
+  background-color: #da190b;
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
