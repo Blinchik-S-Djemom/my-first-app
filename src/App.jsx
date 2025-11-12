@@ -1,8 +1,12 @@
-import { useState } from "react";
+/*import { useState } from "react";*/
 import "./App.module.css";
+import Button from "./components/Button/Button";
+import Number from "./components/Content/Number";
+import ObservableCountStore from "./store/counter";
+import { observer } from "mobx-react-lite";
 
-function App() {
-  const [count, setCount] = useState(0);
+const App = observer(() => {
+  /*const [count, setCount] = useState(0);
 
   const increaseNumber = () => {
     setCount(count + 1);
@@ -12,32 +16,39 @@ function App() {
     setCount(count - 1);
   };
 
-  {
-    /*//function decreaseNumber() {
-//    setCount(count - 1);
-//}
+  function decreaseNumber() {
+    setCount(count - 1);
+}
 
-//const decreaseNumber = function() {
-//    setCount(count - 1);
-//};
-// Как правильно и в чем разница между способами?*/
-  }
+const decreaseNumber = function() {
+    setCount(count - 1);
+};*/
 
   return (
     <div className="app">
-      <h1 className="number">{count}</h1>
-
+      <Number value={ObservableCountStore.count} />
       <div className="buttons">
-        <button className="button plus" onClick={increaseNumber}>
-          +1
-        </button>
-
-        <button className="button minus" onClick={decreaseNumber}>
-          -1
-        </button>
+        {/*<Button onClick={increaseNumber} variant="primary">
+          <span>+1</span>
+        </Button>
+        <Button onClick={decreaseNumber} variant="notprimary">
+          <span>-1</span>
+        </Button> */}
+        <Button
+          onClick={() => ObservableCountStore.increase()}
+          variant="primary"
+        >
+          <span>+1</span>
+        </Button>
+        <Button
+          onClick={() => ObservableCountStore.decrease()}
+          variant="notprimary"
+        >
+          <span>-1</span>
+        </Button>
       </div>
     </div>
   );
-}
+});
 
 export default App;
