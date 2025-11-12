@@ -1,14 +1,27 @@
 body {
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
   background: linear-gradient(135deg, #5767ac 0%, #50306f 100%);
   background-attachment: fixed;
-  place-items: center;
 }
 
 #root {
+  width: 100%;
   margin: 0 auto;
   text-align: center;
 }
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
 .buttons {
   display: flex;
   gap: 20px;
