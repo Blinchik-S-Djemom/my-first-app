@@ -1,54 +1,26 @@
-/*import { useState } from "react";*/
+// Добавь этот импорт в начало файла
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.module.css";
-import Button from "./components/Button/Button";
-import Number from "./components/Content/Number";
-import ObservableCountStore from "./store/counter";
-import { observer } from "mobx-react-lite";
+import styles from "./App.module.css";
+import Counter from "./pages/counter";
+import NewPage from "./pages/NewPage";
 
-const App = observer(() => {
-  /*const [count, setCount] = useState(0);
-
-  const increaseNumber = () => {
-    setCount(count + 1);
-  };
-
-  const decreaseNumber = () => {
-    setCount(count - 1);
-  };
-
-  function decreaseNumber() {
-    setCount(count - 1);
-}
-
-const decreaseNumber = function() {
-    setCount(count - 1);
-};*/
-
+function App() {
   return (
-    <div className="app">
-      <Number value={ObservableCountStore.count} />
-      <div className="buttons">
-        {/*<Button onClick={increaseNumber} variant="primary">
-          <span>+1</span>
-        </Button>
-        <Button onClick={decreaseNumber} variant="notprimary">
-          <span>-1</span>
-        </Button> */}
-        <Button
-          onClick={() => ObservableCountStore.increase()}
-          variant="primary"
-        >
-          <span>+1</span>
-        </Button>
-        <Button
-          onClick={() => ObservableCountStore.decrease()}
-          variant="notprimary"
-        >
-          <span>-1</span>
-        </Button>
+    <Router>
+      <div className="app">
+        <nav className={styles.navigation}>
+          <Link to="/">Счётчик</Link>
+          <Link to="/newpage">Новая страница</Link>
+        </nav>
+
+        <Routes>
+          <Route path="/" element={<Counter />} />
+          <Route path="/newpage" element={<NewPage />} />
+        </Routes>
       </div>
-    </div>
+    </Router>
   );
-});
+}
 
 export default App;
