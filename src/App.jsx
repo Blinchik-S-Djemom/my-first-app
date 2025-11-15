@@ -4,6 +4,7 @@ import "./App.module.css";
 import styles from "./App.module.css";
 import Counter from "./pages/counter";
 import NewPage from "./pages/NewPage";
+import NewPage2 from "./pages/NewPage2";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Counter />} />
-          <Route path="/newpage" element={<NewPage />} />
+          <Route path="/newpage" element={<NewPage2 />} />
         </Routes>
       </div>
     </Router>
